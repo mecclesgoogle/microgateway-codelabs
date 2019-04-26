@@ -66,6 +66,7 @@ module.exports.init = function(config, logger, stats) {
 ```
 
 5. Enable the following plugins in `~/.edgemicro/<org>-<env>-config.yaml`.
+
 **Note:** Any existing plugins such as oauth can be left how they are.
 
 **Note:** The order of the plugins is important because the data must be accumulated before the log-payload policy executes. In the response execution, plugins are exected in reverse order so we need to place accumulate-response after log-payload.
