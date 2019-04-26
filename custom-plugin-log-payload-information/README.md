@@ -5,11 +5,10 @@
 _Assuming nodejs and npm is installed globally:_
 
 1. Set the following environment variables
+```
 export NODE_MODULES_HOME=`npm list -g | head -1`/node_modules
 export EDGEMICRO_HOME=${NODE_MODULES_HOME}/edgemicro
-export EDGEMICRO_KEY=<key>
-export EDGEMICRO_SECRET=<secret>
-
+```
 
 2. Create the plugin shell
 under $EDGEMICRO_HOME/plugins create a new directory with the name 'log-payload'
@@ -52,7 +51,9 @@ module.exports.init = function(config, logger, stats) {
 
 5. Enable the following plugins in `~/.edgemicro/<org>-<env>-config.yaml`.
 **Note:** Any existing plugins such as oauth can be left how they are.
+
 **Note:** The order of the plugins is important because the data must be accumulated before the log-payload policy executes. In the response execution, plugins are exected in reverse order so we need to place accumulate-response after log-payload.
+
 ```
 plugins:
     sequence:
