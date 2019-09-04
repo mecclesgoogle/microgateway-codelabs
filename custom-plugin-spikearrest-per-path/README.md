@@ -83,3 +83,26 @@ edgemicro:
 9. Now do the same for an API that does not match the pathPattern. It should *not* be throttled!
 
 10. To achieve the same for additional paths, repeat steps 2-6, each time using a unique name for the plugin. e.g. "spikearrest-b", "spikearrest-c",  etc. Reload MGW at the end.
+
+edgemicro:
+...
+spikearrest-a:
+  timeUnit: minute
+  allow: 5
+  buffersize: 0
+  pathPattern: v1\/customeraccounts
+spikearrest-b:
+  timeUnit: minute
+  allow: 30
+  buffersize: 0
+  pathPattern: v1\/contacts
+spikearrest-c:
+  timeUnit: minute
+  allow: 100
+  buffersize: 0
+  pathPattern: v2\/customeraccounts
+```
+
+## References
+https://www.npmjs.com/package/volos-spikearrest-memory
+
